@@ -3,7 +3,11 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 const bestScoreElement = document.getElementById('bestScore');
+const bestScoreMenuElement = document.getElementById('bestScoreMenu');
 const gameStatusElement = document.getElementById('gameStatus');
+const menuScreen = document.getElementById('menuScreen');
+const gameScreen = document.getElementById('gameScreen');
+const playBtn = document.getElementById('playBtn');
 
 // Bird object
 const bird = {
@@ -12,8 +16,8 @@ const bird = {
     width: 30,
     height: 26,
     velocity: 0,
-    gravity: 0.5,
-    jumpPower: -12,
+    gravity: 0.35,
+    jumpPower: -9,
     color: '#FFD700'
 };
 
@@ -31,15 +35,19 @@ let lastPipeX = 150;
 
 // Initialize best score display
 bestScoreElement.textContent = bestScore;
+bestScoreMenuElement.textContent = bestScore;
 
 // Event listeners
 document.addEventListener('keydown', handleKeyPress);
 canvas.addEventListener('click', handleCanvasClick);
+playBtn.addEventListener('click', startGameFromMenu);
 
 function handleKeyPress(e) {
     if (e.code === 'Space') {
         e.preventDefault();
-        if (!gameActive && !gameOver) {
+        if (menuScreen.style.display !== 'none') {
+            startGameFromMenu();
+        } else if (!gameActive && !gameOver) {
             startGame();
         } else if (gameActive && !gameOver) {
             bird.velocity = bird.jumpPower;
@@ -60,6 +68,47 @@ function startGame() {
     gameOver = false;
     gameStatusElement.textContent = '';
     gameStatusElement.style.visibility = 'hidden';
+}
+
+function startGameFromMenu() {
+    // Reset game state
+    bird.y = 150;
+    bird.velocity = 0;
+    pipes = [];
+    score = 0;
+    lastPipeX = 150;
+    scoreElement.textContent = score;
+    
+    // Switch screens
+    menuScreen.style.display = 'none';
+    gameScreen.style.display = 'block';
+    
+    // Start game
+    startGame();
+    
+    // Create initial pipe
+    createPipe();
+}
+
+function showMenu() {
+    // Reset game state
+    bird.y = 150;
+    bird.velocity = 0;
+    pipes = [];
+    score = 0;
+    lastPipeX = 150;
+    scoreElement.textContent = score;
+    gameActive = false;
+    gameOver = false;
+    gameStatusElement.textContent = 'Click or Press SPACE to Start';
+    gameStatusElement.style.visibility = 'visible';
+    
+    // Update best score in menu
+    bestScoreMenuElement.textContent = bestScore;
+    
+    // Switch screens
+    gameScreen.style.display = 'none';
+    menuScreen.style.display = 'flex';
 }
 
 function createPipe() {
@@ -94,7 +143,7 @@ function updatePipes() {
 
     // Move pipes
     for (let i = pipes.length - 1; i >= 0; i--) {
-        pipes[i].x -= 3;
+        pipes[i].x -= 2;
 
         // Check if bird passed the pipe
         if (!pipes[i].passed && pipes[i].x + pipeWidth < bird.x) {
@@ -221,8 +270,8 @@ function drawCloud(x, y) {
     ctx.arc(x, y, 20, 0, Math.PI * 2);
     ctx.arc(x + 20, y - 10, 25, 0, Math.PI * 2);
     ctx.arc(x + 40, y, 20, 0, Math.PI * 2);
-    ctx.fill();
-}
+   Show menu on start
+showMenu
 
 function draw() {
     // Clear canvas

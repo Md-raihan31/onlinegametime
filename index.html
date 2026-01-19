@@ -9,17 +9,34 @@
 <body>
     <div class="container">
         <h1>Flappy Bird</h1>
-        <div class="game-info">
-            <div class="score-board">
-                <span>Score: <span id="score">0</span></span>
-                <span>Best: <span id="bestScore">0</span></span>
+        
+        <!-- Menu Screen -->
+        <div id="menuScreen" class="menu-screen">
+            <div class="menu-content">
+                <h2>Welcome!</h2>
+                <p>Test your reflexes and see how high you can score!</p>
+                <button id="playBtn" class="play-btn">PLAY NOW</button>
+                <div class="high-score-menu">
+                    <p>Your Best Score: <span id="bestScoreMenu">0</span></p>
+                </div>
             </div>
         </div>
-        <canvas id="gameCanvas" width="400" height="600"></canvas>
-        <div class="controls">
-            <p id="gameStatus" class="game-status">Click or Press SPACE to Start</p>
-            <button id="restartBtn" class="restart-btn" onclick="location.reload()">Restart Game</button>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="game-screen" style="display: none;">
+            <div class="game-info">
+                <div class="score-board">
+                    <span>Score: <span id="score">0</span></span>
+                    <span>Best: <span id="bestScore">0</span></span>
+                </div>
+            </div>
+            <canvas id="gameCanvas" width="400" height="600"></canvas>
+            <div class="controls">
+                <p id="gameStatus" class="game-status">Click or Press SPACE to Start</p>
+                <button id="restartBtn" class="restart-btn" onclick="showMenu()">Back to Menu</button>
+            </div>
         </div>
+
         <div class="instructions">
             <h3>How to Play:</h3>
             <ul>
@@ -30,7 +47,7 @@
             </ul>
         </div>
         <div class="version">
-            <small>Version 1.0.0</small>
+            <small>Version 1.1.0</small>
         </div>
     </div>
 
