@@ -18,9 +18,9 @@ const bird = {
 };
 
 // Pipe object template
-const pipeGap = 120;
+const pipeGap = 160;
 const pipeWidth = 60;
-const pipeColor = '#2d5016';
+const pipeColor = '#22aa22';
 
 let pipes = [];
 let score = 0;
