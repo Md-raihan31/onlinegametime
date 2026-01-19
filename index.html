@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Flappy Bird</h1>
+        <div class="game-info">
+            <div class="score-board">
+                <span>Score: <span id="score">0</span></span>
+                <span>Best: <span id="bestScore">0</span></span>
+            </div>
+        </div>
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+        <div class="controls">
+            <p id="gameStatus" class="game-status">Click or Press SPACE to Start</p>
+            <button id="restartBtn" class="restart-btn" onclick="location.reload()">Restart Game</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <ul>
+                <li>Click anywhere or press SPACE to make the bird jump</li>
+                <li>Avoid the pipes</li>
+                <li>Each pipe you pass earns you 1 point</li>
+                <li>Game ends if you hit a pipe or go out of bounds</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

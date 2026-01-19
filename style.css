@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.score-board {
+    display: flex;
+    gap: 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.score-board span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#gameCanvas {
+    display: block;
+    margin: 0 auto;
+    border: 3px solid #333;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.game-status {
+    font-size: 1.1em;
+    color: #667eea;
+    font-weight: bold;
+    margin-bottom: 15px;
+    min-height: 25px;
+}
+
+.restart-btn {
+    padding: 12px 30px;
+    font-size: 1em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+}
+
+.restart-btn:active {
+    transform: translateY(0);
+}
+
+.instructions {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8f9ff;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.instructions h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.instructions ul {
+    list-style: none;
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.8;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.instructions li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .score-board {
+        gap: 20px;
+        font-size: 1em;
+    }
+
+    #gameCanvas {
+        max-width: 100%;
+    }
+}
