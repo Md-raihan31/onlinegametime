@@ -63,11 +63,16 @@ h1 {
 #gameCanvas {
     display: block;
     margin: 0 auto;
-    border: 3px solid #333;
-    border-radius: 10px;
+    border: 4px solid #667eea;
+    border-radius: 15px;
     background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 50px rgba(102, 126, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+#gameCanvas:hover {
+    transform: scale(1.01);
 }
 
 .controls {
@@ -84,60 +89,65 @@ h1 {
 }
 
 .restart-btn {
-    padding: 12px 30px;
-    font-size: 1em;
+    padding: 14px 40px;
+    font-size: 1.05em;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    letter-spacing: 0.5px;
 }
 
 .restart-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
 }
 
 .restart-btn:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
 }
 
 .instructions {
-    margin-top: 25px;
-    padding: 20px;
-    background: #f8f9ff;
-    border-radius: 10px;
-    border-left: 4px solid #667eea;
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    border-radius: 12px;
+    border-left: 5px solid #667eea;
+    backdrop-filter: blur(10px);
 }
 
 .instructions h3 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 1.1em;
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    font-weight: 700;
 }
 
 .instructions ul {
     list-style: none;
-    color: #555;
-    font-size: 0.95em;
-    line-height: 1.8;
+    color: #444;
+    font-size: 0.98em;
+    line-height: 2;
 }
 
 .instructions li {
-    margin-bottom: 8px;
-    padding-left: 20px;
+    margin-bottom: 10px;
+    padding-left: 25px;
     position: relative;
 }
 
 .instructions li:before {
-    content: "▸";
+    content: "✓";
     position: absolute;
     left: 0;
     color: #667eea;
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 @media (max-width: 600px) {
