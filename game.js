@@ -18,7 +18,7 @@ const bird = {
 };
 
 // Pipe object template
-const pipeGap = 160;
+const pipeGap = 180;
 const pipeWidth = 60;
 const pipeColor = '#22aa22';
 
@@ -63,7 +63,9 @@ function startGame() {
 }
 
 function createPipe() {
-    const topPipeHeight = Math.random() * (canvas.height - pipeGap - 100) + 50;
+    const minTopHeight = 40;
+    const maxTopHeight = canvas.height - pipeGap - 40;
+    const topPipeHeight = Math.random() * (maxTopHeight - minTopHeight) + minTopHeight;
     const bottomPipeY = topPipeHeight + pipeGap;
 
     pipes.push({
@@ -92,7 +94,7 @@ function updatePipes() {
 
     // Move pipes
     for (let i = pipes.length - 1; i >= 0; i--) {
-        pipes[i].x -= 5;
+        pipes[i].x -= 3;
 
         // Check if bird passed the pipe
         if (!pipes[i].passed && pipes[i].x + pipeWidth < bird.x) {
